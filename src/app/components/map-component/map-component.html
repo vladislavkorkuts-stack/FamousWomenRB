@@ -1,0 +1,202 @@
+<main class="map-page">
+  <!-- Карта -->
+  <section class="map-area">
+    <div #mapContainer class="map-frame"></div>
+  </section>
+
+  <!-- Заголовок карты -->
+  <div class="map-head" aria-hidden="true">
+    <h1 class="map-head__title">Карта знаменитых женщин Беларуси</h1>
+    <p class="map-head__count">
+      Найдено: <strong>{{ filteredWomen.length }}</strong>
+    </p>
+  </div>
+
+  <!-- Кнопки управления -->
+  <div class="map-controls" aria-label="Основные элементы управления картой">
+    <button
+      class="map-control map-control--home"
+      type="button"
+      aria-label="Вернуться на главную"
+      (click)="goHome()">
+      <span class="map-control__icon" aria-hidden="true">
+        <img src="assets/house.svg" alt="">
+      </span>
+      <span class="map-control__label">На главную</span>
+    </button>
+
+    <button
+      #filtersToggle
+      class="map-control map-control--filter"
+      type="button"
+      aria-label="Открыть фильтры"
+      (click)="toggleFilters(); $event.stopPropagation()">
+      <span class="map-control__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <path d="M3 5h18v2H3V5Zm3 6h12v2H6v-2Zm4 6h4v2h-4v-2Z"/>
+        </svg>
+      </span>
+      <span class="map-control__label">Фильтры</span>
+    </button>
+  </div>
+
+  <!-- Панель фильтров -->
+  <aside #filtersPanel class="sidebar" [class.is-open]="isFiltersOpen">
+    <button class="sidebar__close" type="button" (click)="closeFilters()" aria-label="Закрыть">×</button>
+
+    <header class="sidebar__header">
+      <h2>Фильтры</h2>
+      <p class="sidebar__lead">Настройте подборку женщин по региону и сфере деятельности</p>
+    </header>
+
+    <div class="filter-group">
+      <h3>Регионы</h3>
+      <ul class="check-list">
+        <li *ngFor="let region of regions">
+          <label class="check-item" [class.is-active]="isSelected(filters.regions, region)">
+            <input
+              type="checkbox"
+              [checked]="isSelected(filters.regions, region)"
+              (change)="toggleRegion(region)" />
+            <span class="check-item__box" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M9.6 16.2 5.4 12l-1.4 1.4 5.6 5.6L20.4 7.8 19 6.4 9.6 16.2Z" />
+              </svg>
+            </span>
+            <span class="check-item__label">{{ region }}</span>
+          </label>
+        </li>
+      </ul>
+    </div>
+
+    <div class="filter-group">
+      <h3>Сферы деятельности</h3>
+      <ul class="check-list">
+        <li *ngFor="let category of categories">
+          <label class="check-item" [class.is-active]="isSelected(filters.categories, category)">
+            <input
+              type="checkbox"
+              [checked]="isSelected(filters.categories, category)"
+              (change)="toggleCategory(category)" />
+            <span class="check-item__box" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M9.6 16.2 5.4 12l-1.4 1.4 5.6 5.6L20.4 7.8 19 6.4 9.6 16.2Z" />
+              </svg>
+            </span>
+            <span class="check-item__label">{{ category }}</span>
+          </label>
+        </li>
+      </ul>
+    </div>
+  </aside>
+
+  <!-- Preview выбранной женщины -->
+  <aside #previewPanel class="preview" [class.is-open]="isPreviewOpen && selectedWoman">
+    <ng-container *ngIf="selectedWoman as woman">
+      <button class="preview__close" type="button" (click)="closePreview()" aria-label="Закрыть">×</button>
+
+      <div class="preview__content">
+        <header class="preview__header">
+          <div>
+            <h2 class="preview__name">{{ woman.name }}</h2>
+            <p class="preview__years">
+              {{ woman.birth || '' }}
+              <span *ngIf="woman.death">– {{ woman.death }}</span>
+            </p>
+            <p class="preview__place">{{ woman.region }} — {{ woman.city }}</p>
+            <div class="preview__categories">
+              @for (category of woman.categories; track $index) {
+                <span class="category">{{ category }}</span>
+              }
+            </div>
+          </div>
+        </header>
+
+        <div class="gallery" *ngIf="woman.images.length as total">
+          <div
+            class="gallery__viewport"
+            (touchstart)="onTouchStart($event)"
+            (touchend)="onTouchEnd($event, total)">
+            <div
+              class="gallery__track"
+              [style.transform]="'translateX(-' + activeImageIndex * 100 + '%)'">
+              <img
+                *ngFor="let image of woman.images; trackBy: trackByImage"
+                [src]="image"
+                [alt]="woman.name" />
+            </div>
+          </div>
+
+          <div class="gallery__controls" *ngIf="total > 1">
+            <button class="gallery__btn" type="button" (click)="prevImage(total)" aria-label="Назад">‹</button>
+            <div class="gallery__dots">
+              <button
+                class="gallery__dot"
+                type="button"
+                *ngFor="let image of woman.images; let i = index; trackBy: trackByImage"
+                [class.is-active]="i === activeImageIndex"
+                (click)="setImageIndex(i)"
+                [attr.aria-label]="'Перейти к фото ' + (i + 1)">
+              </button>
+            </div>
+            <button class="gallery__btn" type="button" (click)="nextImage(total)" aria-label="Вперёд">›</button>
+          </div>
+        </div>
+
+        <p class="preview__text">{{ woman.shortInfo }}</p>
+
+        <a class="details" [routerLink]="['/woman', woman.id]">
+          <span>Подробнее</span>
+          <span aria-hidden="true">→</span>
+        </a>
+      </div>
+    </ng-container>
+  </aside>
+
+  <!-- Таймлайн -->
+  <section class="timeline" [class.is-hidden]="isFiltersOpen || isPreviewOpen" aria-label="Временная лента">
+    <div class="timeline__inner">
+      <div class="timeline__head">
+        <div class="timeline__title">Временная лента</div>
+
+        <label class="switch" aria-label="Показать всех за всё время">
+          <input
+            type="checkbox"
+            [checked]="isAllTime"
+            (change)="isAllTime = !isAllTime; onTimelineChange()" />
+          <span class="switch__track">
+            <span class="switch__thumb"></span>
+          </span>
+          <span class="switch__label">Все время</span>
+        </label>
+      </div>
+
+      <div class="timeline__slider-wrap" [class.is-disabled]="isAllTime">
+        <div class="timeline__thumb-label" [style.left]="thumbPercent + '%'">
+          {{ selectedCenturyLabel }}
+        </div>
+
+        <input
+          class="timeline__slider"
+          type="range"
+          [min]="timelineMin"
+          [max]="timelineMax"
+          step="1"
+          [value]="selectedCentury"
+          (input)="onTimelineInput($event)"
+          [disabled]="isAllTime"
+          [attr.aria-label]="'Выбор века: ' + selectedCenturyLabel" />
+
+        <div class="timeline__ticks">
+          <span
+            *ngFor="let c of centuryTicks"
+            class="timeline__tick"
+            [class.is-active]="c === selectedCentury && !isAllTime"
+            [style.left]="getTickPercent(c) + '%'">
+            {{ toRomanCentury(c) }}
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

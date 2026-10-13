@@ -1,0 +1,241 @@
+<main class="history">
+  <!-- Прогресс-бар скролла -->
+  <div class="progress" aria-hidden="true">
+    <span class="progress__bar" [style.transform]="'scaleX(' + scrollProgress() + ')'"></span>
+  </div>
+
+  <!-- Верхняя панель -->
+  <header class="topbar">
+    <a class="cta cta--outline" routerLink="/">← На главную</a>
+    <a class="cta" routerLink="/map">К карте →</a>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <img class="hero__image" src="assets/history-context/hero_flag.jpg" alt="" />
+    <div class="hero__veil"></div>
+    <div class="hero__content">
+      <p class="kicker">Исторический экскурс</p>
+      <h1>Краткая история Беларуси</h1>
+      <p class="lead">
+        От Полоцкого княжества и эпохи просвещения — до героического подвига
+        в годы войны и созидания современной независимой страны.
+      </p>
+      <div class="hero__hint">
+        <span>Листайте вниз</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 16.5 4.5 9l1.4-1.4L12 13.7l6.1-6.1L19.5 9 12 16.5Z" />
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- STICKY-НАВИГАЦИЯ ПО ЭПОХАМ + СИМВОЛЫ -->
+  <nav class="era-nav" aria-label="Навигация по эпохам">
+    <div class="era-nav__track">
+      @for (era of eras(); track era.slug) {
+        <button
+          type="button"
+          class="era-nav__btn"
+          [class.is-active]="activeSlug() === era.slug"
+          [style.--accent]="era.accent"
+          (click)="scrollToEra(era.slug)">
+          <span class="era-nav__tag">{{ era.tag }}</span>
+        </button>
+      }
+
+      <!-- 🆕 Кнопка перехода к символам -->
+      <button
+        type="button"
+        class="era-nav__btn era-nav__btn--symbols"
+        (click)="scrollToSymbols()">
+        <span class="era-nav__tag">Символы</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ЭПОХИ -->
+  @for (era of eras(); track era.slug; let idx = $index) {
+    <section
+      class="era"
+      [attr.data-era]="era.slug"
+      [style.--accent]="era.accent"
+      [class.era--reverse]="idx % 2 === 1">
+      <header class="era__header" data-reveal>
+        <p class="era__tag">{{ era.tag }}</p>
+        <h2 class="era__title">{{ era.title }}</h2>
+        <p class="era__years">{{ era.years }}</p>
+        <p class="era__lead">{{ era.lead }}</p>
+      </header>
+
+      <div class="era__grid">
+        <aside class="era__timeline" data-reveal>
+          <h3 class="era__subtitle">Хронология</h3>
+          <ol class="timeline">
+            @for (ev of era.events; track ev.year) {
+              <li class="timeline__item">
+                <span class="timeline__year">{{ ev.year }}</span>
+                <span class="timeline__text">{{ ev.text }}</span>
+              </li>
+            }
+          </ol>
+        </aside>
+
+        <div class="era__facts" data-reveal>
+          <h3 class="era__subtitle">Ключевые факты</h3>
+          <ul class="facts">
+            @for (fact of era.facts; track fact) {
+              <li class="facts__item">
+                <svg class="facts__icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 2 4 5v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V5l-8-3Zm-1 15-4-4 1.4-1.4L11 14.2l5.6-5.6L18 10l-7 7Z" />
+                </svg>
+                <span>{{ fact }}</span>
+              </li>
+            }
+          </ul>
+        </div>
+      </div>
+
+      @if (era.women.length) {
+        <div class="era__women" data-reveal>
+          <h3 class="era__subtitle">Женщины эпохи</h3>
+          <div class="women">
+            @for (w of era.women; track w.id) {
+              <a class="woman" [routerLink]="['/woman', w.id]">
+                <span class="woman__photo">
+                  <img [src]="w.image" [alt]="w.name" loading="lazy" />
+                </span>
+                <span class="woman__body">
+                  <span class="woman__name">{{ w.name }}</span>
+                  <span class="woman__meta">{{ w.years }}@if (w.city) { · {{ w.city }} }</span>
+                  <span class="woman__info">{{ w.shortInfo }}</span>
+                </span>
+                <span class="woman__arrow" aria-hidden="true">→</span>
+              </a>
+            }
+          </div>
+        </div>
+      }
+    </section>
+  }
+
+  <!-- СИМВОЛЫ (с якорем #symbols) -->
+  <section id="symbols" class="symbols" data-reveal>
+    <header class="symbols__header">
+      <p class="kicker">Государственные символы</p>
+      <h2>Символы Республики Беларусь</h2>
+      <p class="symbols__lead">
+        Герб, флаг и гимн — три знака, в которых закреплена история и identity страны.
+      </p>
+    </header>
+
+    <div class="symbols__grid">
+      <button class="symbol" type="button" (click)="openSymbol('emblem')">
+        <span class="symbol__img-wrap">
+          <img src="assets/history-context/Emblem_of_Belarus.svg" alt="Герб Беларуси" />
+        </span>
+        <span class="symbol__caption">Герб</span>
+      </button>
+
+      <button class="symbol" type="button" (click)="openSymbol('flag')">
+        <span class="symbol__img-wrap">
+          <img src="assets/history-context/Flag_of_Belarus.svg" alt="Флаг Беларуси" />
+        </span>
+        <span class="symbol__caption">Флаг</span>
+      </button>
+
+      <button class="symbol" type="button" (click)="openAnthem()">
+        <span class="symbol__img-wrap">
+          <img src="assets/history-context/anthem.png" alt="Гимн Беларуси" />
+        </span>
+        <span class="symbol__caption">Гимн</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- ЗАКРЫВАЮЩИЙ БЛОК -->
+  <footer class="closing" data-reveal>
+    <h2 class="closing__title">Продолжите путешествие</h2>
+    <p class="closing__text">
+      Откройте интерактивную карту и найдите истории женщин,
+      которые формировали нашу страну на протяжении веков.
+    </p>
+    <div class="actions">
+      <a class="cta cta--outline" routerLink="/">На главную</a>
+      <a class="cta" routerLink="/map">Перейти к карте</a>
+    </div>
+  </footer>
+
+  <!-- 🆕 КНОПКА «НАВЕРХ» -->
+  @if (showBackToTop()) {
+    <button
+      class="back-to-top"
+      type="button"
+      (click)="scrollToTop()"
+      aria-label="Наверх">
+      ↑
+    </button>
+  }
+
+  <!-- МОДАЛКА СИМВОЛА -->
+  @if (viewer()) {
+    <div
+      class="symbol-viewer"
+      role="dialog"
+      aria-modal="true"
+      [attr.aria-label]="viewer()!.title"
+      (click)="closeViewer()">
+      <div class="symbol-viewer__panel" (click)="$event.stopPropagation()">
+        <button
+          class="symbol-viewer__close"
+          type="button"
+          aria-label="Закрыть"
+          (click)="closeViewer()">×</button>
+        <div class="symbol-viewer__body">
+          <img class="symbol-viewer__img" [src]="viewer()!.src" [alt]="viewer()!.alt" />
+          <a
+            class="symbol-viewer__details"
+            [href]="viewer()!.detailsUrl"
+            target="_blank"
+            rel="noopener noreferrer">{{ viewer()!.detailsLabel }}</a>
+        </div>
+      </div>
+    </div>
+  }
+
+  <!-- МОДАЛКА ГИМНА -->
+  @if (anthemOpen()) {
+    <div
+      class="symbol-viewer"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Гимн Беларуси"
+      (click)="closeAnthem()">
+      <div class="symbol-viewer__panel" (click)="$event.stopPropagation()">
+        <button
+          class="symbol-viewer__close"
+          type="button"
+          aria-label="Закрыть"
+          (click)="closeAnthem()">×</button>
+        <div class="symbol-viewer__body">
+          <h2 class="symbol-viewer__title">Гимн Республики Беларусь</h2>
+          <div class="symbol-viewer__player">
+            <iframe
+              width="100%"
+              height="215"
+              [src]="anthemUrl"
+              title="Гимн Беларуси"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
+          </div>
+          <a
+            class="symbol-viewer__details"
+            [href]="anthemDetailsUrl"
+            target="_blank"
+            rel="noopener noreferrer">{{ anthemDetailsLabel }}</a>
+        </div>
+      </div>
+    </div>
+  }
+</main>

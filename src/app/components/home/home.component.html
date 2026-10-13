@@ -1,0 +1,85 @@
+<main class="home">
+  <!-- Бесконечный фон из летающих фото -->
+  <div class="bg-photos" aria-hidden="true">
+    @for (photo of photos(); track photo.id) {
+      <figure
+        class="bg-photo"
+        [style.--left.%]="photo.left"
+        [style.--size.px]="photo.size"
+        [style.--rotate.deg]="photo.rotate"
+        [style.--duration.s]="photo.duration"
+        [style.--delay.s]="photo.delay"
+        [style.--drift.px]="photo.drift"
+        [style.--opacity]="photo.opacity"
+      >
+        <img [src]="photo.image" [alt]="photo.name" loading="lazy" />
+      </figure>
+    }
+    <div class="bg-photos__overlay"></div>
+  </div>
+  <img
+  class="corner-flower corner-flower--left"
+  src="assets/home-page/vasil.png"
+  alt=""
+  aria-hidden="true"
+/>
+
+<img
+  class="corner-flower corner-flower--right"
+  src="assets/home-page/vasil2.png"
+  alt=""
+  aria-hidden="true"
+/>
+
+  <!-- Центральный блок: карточка слева + логотип справа -->
+  <section class="hero">
+    <div class="hero__inner">
+      <!-- Карточка -->
+      <div class="hero__card">
+        <p class="kicker">Интерактивная карта</p>
+        <h2>Знаменитые женщины Беларуси</h2>
+        <p class="subtitle">
+          Достижения и вклад белорусских женщин в науку, искусство и культуру —
+          в одном современном и удобном пространстве.
+        </p>
+
+        <div class="stats">
+          <div class="stat-card">
+            <svg class="stat-card__icon" viewBox="0 0 24 24">
+              <path d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4Zm0 2c-4 0-8 2-8 6v1h16v-1c0-4-4-6-8-6Z" />
+            </svg>
+            <span class="stat-card__value">Более {{ totalWomen() }} имён</span>
+          </div>
+
+          <div class="stat-card">
+            <svg class="stat-card__icon" viewBox="0 0 24 24">
+              <path d="M7 2h2v2h6V2h2v2h3v18H4V4h3V2Zm13 8H6v10h14V10ZM6 8h14V6H6v2Z" />
+            </svg>
+            <span class="stat-card__value">От X века до наших дней</span>
+          </div>
+
+          <div class="stat-card">
+            <svg class="stat-card__icon" viewBox="0 0 24 24">
+              <path d="M12 2a8 8 0 0 0-8 8c0 6 8 12 8 12s8-6 8-12a8 8 0 0 0-8-8Zm0 11a3 3 0 1 1 3-3 3 3 0 0 1-3 3Z" />
+            </svg>
+            <span class="stat-card__value">Все регионы страны</span>
+          </div>
+        </div>
+
+        <div class="actions">
+          <a class="cta" routerLink="/map">Перейти к карте</a>
+          <a class="cta cta--outline" routerLink="/history-context">Историческая справка</a>
+        </div>
+
+        <p class="content__footer">
+          Открывайте биографии, места и события, которые формировали нашу страну.
+        </p>
+      </div>
+
+      <!-- Логотип справа -->
+      <div class="hero__logo" aria-hidden="true">
+        <img src="assets/home-page/Logo.png" alt="" />
+      </div>
+    </div>
+  </section>
+</main>
