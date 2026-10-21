@@ -1917,9 +1917,9 @@
     },
     {
       "id": "Елена_Моисеевна_Ржевская",
-      "heroImage": "https://jewmil.com/wp-content/uploads/2026/07/rzhevskaya-1942.jpg",
+      "heroImage": "https://www.rw.by/upload/medialibrary/6c4/9qmpxu2s8iqjwn2ildsp60jje8m77iy2/Vera_Lomako.jpg",
       "previewImages": [
-        "https://jewmil.com/wp-content/uploads/2026/07/rzhevskaya-1942.jpg"
+        "https://www.rw.by/upload/medialibrary/6c4/9qmpxu2s8iqjwn2ildsp60jje8m77iy2/Vera_Lomako.jpg"
       ],
       "fullBiography": [
         {
@@ -2427,9 +2427,9 @@
     },
     {
       "id": "Ирина_Васильевна_Ятченко",
-      "heroImage": "https://person.gomelhistory.by/wp-content/uploads/yatchenko-irina-vasilevna.jpg",
+      "heroImage": "https://person.goub.by/wp-content/uploads/2018/09/%D0%AF%D1%82%D1%87%D0%B5%D0%BD%D0%BA%D0%BE-%D0%98.jpg",
       "previewImages": [
-        "https://person.gomelhistory.by/wp-content/uploads/yatchenko-irina-vasilevna.jpg"
+        "https://person.goub.by/wp-content/uploads/2018/09/%D0%AF%D1%82%D1%87%D0%B5%D0%BD%D0%BA%D0%BE-%D0%98.jpg"
       ],
       "fullBiography": [
         {
@@ -3603,7 +3603,8 @@
       "locationBasis": "birthplace",
       "locationLabel": "Место рождения: Новобелица (ныне район Гомеля)",
       "images": [
-        "https://m.traditio.wiki/files/thumb/b/bd/PalutaBadunova.jpg/220px-PalutaBadunova.jpg",
+        "https://archives.gov.by/wp-content/uploads/images/belgosudarstv/bgamli/bodunova.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/1/12/Paluta_Badunova_1923.jpg?utm_source=ru.wikipedia.org&utm_campaign=index&utm_content=original",
         "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Posiedzenie_WRB_i_CBRW.jpg/250px-Posiedzenie_WRB_i_CBRW.jpg?utm_source=pl.wikipedia.org&utm_campaign=parser&utm_content=thumbnail"
       ]
     },
@@ -3744,7 +3745,7 @@
       "locationBasis": "confirmed-biographical-locality",
       "locationLabel": "Подтверждённая биографическая привязка: Гомель, где прошли учёба, работа и занятия в аэроклубе",
       "images": [
-        "https://person.gomelhistory.by/wp-content/uploads/lomako-vera-fyodorovna.jpg"
+        "https://www.rw.by/upload/medialibrary/6c4/9qmpxu2s8iqjwn2ildsp60jje8m77iy2/Vera_Lomako.jpg"
       ]
     },
     {
@@ -3987,6 +3988,7 @@
       "locationBasis": "birthplace",
       "locationLabel": "Место рождения: деревня Копань, Речицкий район",
       "images": [
+        "https://nashi-lyudi.by/images/05/33905.jpg",
         "https://person.gomelhistory.by/wp-content/uploads/tulupova-nelli-ivanovna.jpg"
       ]
     },
@@ -4098,7 +4100,7 @@
       "locationBasis": "birthplace",
       "locationLabel": "Место рождения: деревня Великие Немки, Ветковский район",
       "images": [
-        "https://person.gomelhistory.by/wp-content/uploads/borisenko-veronika-ivanovn.jpg"
+        "https://www.belcanto.ru/media/images/persons/Borisenko_portrait.jpeg"
       ]
     },
     {
@@ -4142,7 +4144,8 @@
       "locationBasis": "birthplace",
       "locationLabel": "Место рождения: посёлок Костюковка, Гомельский район",
       "images": [
-        "https://person.gomelhistory.by/wp-content/uploads/yatchenko-irina-vasilevna.jpg"
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8511VnsFpClWvkYPGmWXwhWv-VrRuO8GKHfqxTxQbvVx5h75vVInFu5iC7pMTQYo-NTqQDvSYi1izY9_SX96qsUp3N39Gyrg-LzbtiA&s=10",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT68WeU03K8Clg4TEpqLcpq6AQnpuSqyIqbC3neEzNHxA&s=10"
       ]
     },
     {
