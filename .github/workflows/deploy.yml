@@ -33,6 +33,10 @@ jobs:
       - name: Build Angular app
         run: npm run build -- --configuration production --base-href "/FamousWomenRB/"
 
+      # 🆕 Копируем index.html в 404.html для поддержки обновления страниц (SPA)
+      - name: Create 404.html for SPA routing
+        run: cp dist/bel-woman-map/browser/index.html dist/bel-woman-map/browser/404.html
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
