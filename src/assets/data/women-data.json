@@ -2067,9 +2067,9 @@
     },
     {
       "id": "Елена_Мироновна_Чухнюк",
-      "heroImage": "https://person.gomelhistory.by/wp-content/uploads/chuxnyuk-elena-mironovna1-1140x601.jpg",
+      "heroImage": "https://person.goub.by/wp-content/uploads/2018/09/%D0%A7%D1%83%D1%85%D0%BD%D1%8E%D0%BA-%D0%95-293x400.jpg",
       "previewImages": [
-        "https://person.gomelhistory.by/wp-content/uploads/chuxnyuk-elena-mironovna1-1140x601.jpg"
+        "https://person.goub.by/wp-content/uploads/2018/09/%D0%A7%D1%83%D1%85%D0%BD%D1%8E%D0%BA-%D0%95-293x400.jpg"
       ],
       "fullBiography": [
         {
@@ -2217,9 +2217,9 @@
     },
     {
       "id": "Нелли_Ивановна_Тулупова",
-      "heroImage": "https://person.gomelhistory.by/wp-content/uploads/tulupova-nelli-ivanovna.jpg",
+      "heroImage": "https://nashi-lyudi.by/images/05/33905.jpg",
       "previewImages": [
-        "https://person.gomelhistory.by/wp-content/uploads/tulupova-nelli-ivanovna.jpg"
+        "https://nashi-lyudi.by/images/05/33905.jpg"
       ],
       "fullBiography": [
         {
@@ -2367,9 +2367,9 @@
     },
     {
       "id": "Вероника_Ивановна_Борисенко",
-      "heroImage": "https://person.gomelhistory.by/wp-content/uploads/borisenko-veronika-ivanovn.jpg",
+      "heroImage": "https://www.belcanto.ru/media/images/persons/Borisenko_portrait.jpeg",
       "previewImages": [
-        "https://person.gomelhistory.by/wp-content/uploads/borisenko-veronika-ivanovn.jpg"
+        "https://www.belcanto.ru/media/images/persons/Borisenko_portrait.jpeg"
       ],
       "fullBiography": [
         {
@@ -3878,6 +3878,7 @@
       "locationBasis": "confirmed-biographical-locality",
       "locationLabel": "Подтверждённая биографическая привязка: Гомель, город обучения и работы в локомотивном депо",
       "images": [
+        "https://person.goub.by/wp-content/uploads/2018/09/%D0%A7%D1%83%D1%85%D0%BD%D1%8E%D0%BA-%D0%95-293x400.jpg",
         "https://person.gomelhistory.by/wp-content/uploads/chuxnyuk-elena-mironovna1-1140x601.jpg"
       ]
     },
