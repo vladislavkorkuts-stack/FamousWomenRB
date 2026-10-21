@@ -2127,9 +2127,9 @@
     },
     {
       "id": "Тамара_Михайловна_Шаршакова",
-      "heroImage": "https://person.gomelhistory.by/wp-content/uploads/sharshakova-tamara-mihajlovna-1140x601.jpg",
+      "heroImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6BLEF_NbHtg92KQXk_zHDwNtbNdaNRBkElcfwAONUZ8jt2Sygw8Oa3MA&s=10",
       "previewImages": [
-        "https://person.gomelhistory.by/wp-content/uploads/sharshakova-tamara-mihajlovna-1140x601.jpg"
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6BLEF_NbHtg92KQXk_zHDwNtbNdaNRBkElcfwAONUZ8jt2Sygw8Oa3MA&s=10g"
       ],
       "fullBiography": [
         {
@@ -2307,9 +2307,9 @@
     },
     {
       "id": "Татьяна_Климович",
-      "heroImage": "https://person.gomelhistory.by/wp-content/uploads/klimovich-tatyana.jpg",
+      "heroImage": "https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcST61dz6oIIYQ3z9o0sxbeazlqdZEfxCrL--ve42NYUSJiWPdouS4IbGtDv6EwMqs177bQvjGZ2q6afMRb2YGegZY9Uww3LEz71CAI4Vjgw1oRzWYP94iFDqYLRtxMIm0Ow7q9K9SyaGIDh&s=19",
       "previewImages": [
-        "https://person.gomelhistory.by/wp-content/uploads/klimovich-tatyana.jpg"
+        "https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcST61dz6oIIYQ3z9o0sxbeazlqdZEfxCrL--ve42NYUSJiWPdouS4IbGtDv6EwMqs177bQvjGZ2q6afMRb2YGegZY9Uww3LEz71CAI4Vjgw1oRzWYP94iFDqYLRtxMIm0Ow7q9K9SyaGIDh&s=19"
       ],
       "fullBiography": [
         {
@@ -2517,9 +2517,9 @@
     },
     {
       "id": "Анастасия_Ивановна_Шабалтас-Савченко",
-      "heroImage": "https://person.gomelhistory.by/wp-content/uploads/shabaltas-savchenko-anastasiya-ivanovna.jpg",
+      "heroImage": "https://arthaos.com/assets/cache_image/authors/shabaltas-anastasiya/shabaltas_600x0_b0e.jpg",
       "previewImages": [
-        "https://person.gomelhistory.by/wp-content/uploads/shabaltas-savchenko-anastasiya-ivanovna.jpg"
+        "https://arthaos.com/assets/cache_image/authors/shabaltas-anastasiya/shabaltas_600x0_b0e.jpg"
       ],
       "fullBiography": [
         {
@@ -2607,9 +2607,9 @@
     },
     {
       "id": "Ольга_Карповна_Шинкоренко",
-      "heroImage": "https://person.gomelhistory.by/wp-content/uploads/shinkorenko-olga-karpovna.jpg",
+      "heroImage": "https://gorbibl.gomel.by/templates/ggcbs/images/museum/img/245.jpg",
       "previewImages": [
-        "https://person.gomelhistory.by/wp-content/uploads/shinkorenko-olga-karpovna.jpg"
+        "https://gorbibl.gomel.by/templates/ggcbs/images/museum/img/245.jpg"
       ],
       "fullBiography": [
         {
@@ -3923,6 +3923,7 @@
       "locationBasis": "birthplace",
       "locationLabel": "Место рождения: деревня Журавлёвка, Гомельский район",
       "images": [
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6BLEF_NbHtg92KQXk_zHDwNtbNdaNRBkElcfwAONUZ8jt2Sygw8Oa3MA&s=10",
         "https://person.gomelhistory.by/wp-content/uploads/sharshakova-tamara-mihajlovna-1140x601.jpg"
       ]
     },
@@ -4058,6 +4059,7 @@
       "locationBasis": "birthplace",
       "locationLabel": "Место рождения: агрогородок Иваки, Добрушский район",
       "images": [
+        "https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcST61dz6oIIYQ3z9o0sxbeazlqdZEfxCrL--ve42NYUSJiWPdouS4IbGtDv6EwMqs177bQvjGZ2q6afMRb2YGegZY9Uww3LEz71CAI4Vjgw1oRzWYP94iFDqYLRtxMIm0Ow7q9K9SyaGIDh&s=19",
         "https://person.gomelhistory.by/wp-content/uploads/klimovich-tatyana.jpg"
       ]
     },
@@ -4213,6 +4215,7 @@
       "locationBasis": "birthplace",
       "locationLabel": "Место рождения: Гомель",
       "images": [
+        "https://arthaos.com/assets/cache_image/authors/shabaltas-anastasiya/shabaltas_600x0_b0e.jpg",
         "https://person.gomelhistory.by/wp-content/uploads/shabaltas-savchenko-anastasiya-ivanovna.jpg"
       ]
     },
@@ -4281,6 +4284,7 @@
       "locationBasis": "birthplace",
       "locationLabel": "Место рождения: деревня Ракшин, Светлогорский район",
       "images": [
+        "https://gorbibl.gomel.by/templates/ggcbs/images/museum/img/245.jpg",
         "https://person.gomelhistory.by/wp-content/uploads/shinkorenko-olga-karpovna.jpg"
       ]
     },
