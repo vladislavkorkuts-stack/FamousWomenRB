@@ -3603,7 +3603,8 @@
       "locationBasis": "birthplace",
       "locationLabel": "Место рождения: Новобелица (ныне район Гомеля)",
       "images": [
-        "https://m.traditio.wiki/files/thumb/b/bd/PalutaBadunova.jpg/220px-PalutaBadunova.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/1/12/Paluta_Badunova_1923.jpg?utm_source=ru.wikipedia.org&utm_campaign=index&utm_content=original",
+        "https://archives.gov.by/wp-content/uploads/images/belgosudarstv/bgamli/bodunova.jpg",
         "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Posiedzenie_WRB_i_CBRW.jpg/250px-Posiedzenie_WRB_i_CBRW.jpg?utm_source=pl.wikipedia.org&utm_campaign=parser&utm_content=thumbnail"
       ]
     },
@@ -3987,6 +3988,7 @@
       "locationBasis": "birthplace",
       "locationLabel": "Место рождения: деревня Копань, Речицкий район",
       "images": [
+        "https://nashi-lyudi.by/images/05/33905.jpg",
         "https://person.gomelhistory.by/wp-content/uploads/tulupova-nelli-ivanovna.jpg"
       ]
     },
