@@ -2277,9 +2277,9 @@
     },
     {
       "id": "Людмила_Васильевна_Жиженко",
-      "heroImage": "https://person.gomelhistory.by/wp-content/uploads/zhizhenko-lyudmila-vasilevna.jpg",
+      "heroImage": "https://nashi-lyudi.by/images/35/34035.jpg",
       "previewImages": [
-        "https://person.gomelhistory.by/wp-content/uploads/zhizhenko-lyudmila-vasilevna.jpg"
+        "https://zhizhenko.com/static/img/ludmila-zhizhenko-big.jpg"
       ],
       "fullBiography": [
         {
@@ -2577,9 +2577,9 @@
     },
     {
       "id": "Татьяна_Александровна_Говоркова",
-      "heroImage": "https://person.gomelhistory.by/wp-content/uploads/govorkova-tatyana-aleksandrovna.jpg",
+      "heroImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP2ZH8603rXBKCpOj4uerq2QkDozUuMOecDagVNLHYtE5oVVeZYXTponI&s=10",
       "previewImages": [
-        "https://person.gomelhistory.by/wp-content/uploads/govorkova-tatyana-aleksandrovna.jpg"
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP2ZH8603rXBKCpOj4uerq2QkDozUuMOecDagVNLHYtE5oVVeZYXTponI&s=10"
       ],
       "fullBiography": [
         {
@@ -4035,6 +4035,7 @@
       "locationBasis": "birthplace",
       "locationLabel": "Место рождения: Гомель",
       "images": [
+        "https://zhizhenko.com/static/img/ludmila-zhizhenko-big.jpg",
         "https://person.gomelhistory.by/wp-content/uploads/zhizhenko-lyudmila-vasilevna.jpg"
       ]
     },
@@ -4256,6 +4257,7 @@
       "locationBasis": "birthplace",
       "locationLabel": "Место рождения: Гомель",
       "images": [
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP2ZH8603rXBKCpOj4uerq2QkDozUuMOecDagVNLHYtE5oVVeZYXTponI&s=10",
         "https://person.gomelhistory.by/wp-content/uploads/govorkova-tatyana-aleksandrovna.jpg"
       ]
     },
