@@ -96,29 +96,6 @@
         </div>
       </div>
 
-      @if (era.women.length) {
-        <div class="era__women" data-reveal>
-          <h3 class="era__subtitle">Женщины эпохи</h3>
-          <div class="women">
-            @for (w of era.women; track w.id) {
-              <a class="woman" [routerLink]="['/woman', w.id]">
-                <span class="woman__photo">
-                  <img [src]="w.image" [alt]="w.name" loading="lazy" />
-                </span>
-                <span class="woman__body">
-                  <span class="woman__name">{{ w.name }}</span>
-                  <span class="woman__meta">{{ w.years }}@if (w.city) { · {{ w.city }} }</span>
-                  <span class="woman__info">{{ w.shortInfo }}</span>
-                </span>
-                <span class="woman__arrow" aria-hidden="true">→</span>
-              </a>
-            }
-          </div>
-        </div>
-      }
-    </section>
-  }
-
   <!-- СИМВОЛЫ (с якорем #symbols) -->
   <section id="symbols" class="symbols" data-reveal>
     <header class="symbols__header">
