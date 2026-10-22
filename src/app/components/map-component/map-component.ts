@@ -512,31 +512,33 @@ export class MapComponent implements AfterViewInit, OnDestroy {
   }
 
   private matchesTimeline(woman: WomanProfile): boolean {
-    if (this.isAllTime) {
-      return true;
-    }
-
-    const [start, end] = this.getCenturyBounds(this.selectedCentury);
-
-    const birth = woman.birth;
-    const death = woman.death;
-
-    if (birth == null && death == null) {
-      return true;
-    }
-
-    if (birth != null && death == null) {
-      return birth >= start && birth <= end;
-    }
-
-    if (birth == null && death != null) {
-      return death >= start && death <= end;
-    }
-
-    const lifeStart = Math.min(birth!, death!);
-    const lifeEnd = Math.max(birth!, death!);
-    return lifeStart <= end && lifeEnd >= start;
+  if (this.isAllTime) {
+    return true;
   }
+
+  const [start, end] = this.getCenturyBounds(this.selectedCentury);
+
+  let birth = woman.birth;
+  let death = woman.death;
+
+  if (birth == null && woman.century) {
+    birth = this.parseYearFromCentury(woman.century);
+  }
+  
+  if (death == null && woman.century) {
+    death = this.parseYearFromCentury(woman.century) + 99;
+  }
+
+  if (birth == null && death == null) {
+    return true;
+  }
+
+  const currentYear = new Date().getFullYear(); // 2026
+  const lifeStart = birth ?? 0;
+  const lifeEnd = death ?? currentYear;
+
+  return lifeStart <= end && lifeEnd >= start;
+}
 
   private getCenturyBounds(century: number): [number, number] {
     // X век -> 901–1000, XI век -> 1001–1100, ... XXI век -> 2001–2100
