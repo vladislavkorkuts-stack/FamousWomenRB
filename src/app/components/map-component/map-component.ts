@@ -540,6 +540,14 @@ export class MapComponent implements AfterViewInit, OnDestroy {
   return lifeStart <= end && lifeEnd >= start;
 }
 
+    private parseYearFromCentury(century?: string): number | null {
+    if (!century) return null;
+    const match = century.match(/(\d+)/);
+    if (!match) return null;
+    const c = parseInt(match[1], 10);
+    return (c - 1) * 100 + 50;
+  }
+
   private getCenturyBounds(century: number): [number, number] {
     // X век -> 901–1000, XI век -> 1001–1100, ... XXI век -> 2001–2100
     const start = (century - 1) * 100 + 1;
