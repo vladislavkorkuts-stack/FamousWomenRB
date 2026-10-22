@@ -511,34 +511,41 @@ export class MapComponent implements AfterViewInit, OnDestroy {
     this.activeImageIndex = index;
   }
 
-  private matchesTimeline(woman: WomanProfile): boolean {
-  if (this.isAllTime) {
-    return true;
+   private matchesTimeline(woman: WomanProfile): boolean {
+    if (this.isAllTime) {
+      return true;
+    }
+
+    const [start, end] = this.getCenturyBounds(this.selectedCentury);
+
+    let birth = woman.birth;
+    let death = woman.death;
+
+    // Безопасно парсим век, проверяя на null
+    if (birth == null && woman.century) {
+      const parsedBirth = this.parseYearFromCentury(woman.century);
+      if (parsedBirth !== null) {
+        birth = parsedBirth;
+      }
+    }
+    
+    if (death == null && woman.century) {
+      const parsedDeath = this.parseYearFromCentury(woman.century);
+      if (parsedDeath !== null) {
+        death = parsedDeath + 99;
+      }
+    }
+
+    if (birth == null && death == null) {
+      return true;
+    }
+
+    const currentYear = new Date().getFullYear(); // 2026
+    const lifeStart = birth ?? 0;
+    const lifeEnd = death ?? currentYear;
+
+    return lifeStart <= end && lifeEnd >= start;
   }
-
-  const [start, end] = this.getCenturyBounds(this.selectedCentury);
-
-  let birth = woman.birth;
-  let death = woman.death;
-
-  if (birth == null && woman.century) {
-    birth = this.parseYearFromCentury(woman.century);
-  }
-  
-  if (death == null && woman.century) {
-    death = this.parseYearFromCentury(woman.century) + 99;
-  }
-
-  if (birth == null && death == null) {
-    return true;
-  }
-
-  const currentYear = new Date().getFullYear(); // 2026
-  const lifeStart = birth ?? 0;
-  const lifeEnd = death ?? currentYear;
-
-  return lifeStart <= end && lifeEnd >= start;
-}
 
     private parseYearFromCentury(century?: string): number | null {
     if (!century) return null;
